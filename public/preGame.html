@@ -187,15 +187,14 @@
     </form>
 
 
-    <form class="none" id="formNew">
+    <form class="none" id="formNew" href="configBoard.html">
         <div style="display: flex; justify-content: center;">
             <img src="/public/DuckLogoBlue.png" style="width: 300px; border-radius: 15px;">
         </div>
 
         <h3>Crea una chiave sicura</h3>
-        <form id="formAccedi" action="connessioneDb.php">
             <input typ="text" id="keyGame" placeholder="chiave partita" style="padding-left: 10px;">
-            <button type="submit" id="creaGame" class="btn-primary" onClick="">Crea</button>
+            <button type="button" id="creaGame" class="btn-primary" onClick="window.location.href='configBoard.html'">Crea</button>
             <p style="padding-left: 10px;" class="mt-2">
              Trova un game: 
                 <span style="color:blue; margin-top: 5px;" class="mt-2 text-center" onclick="mostraForm();"> Unisciti!</span>
@@ -219,15 +218,15 @@
             
         </form>
 
-        <form class="none" id="formJoin">
+        <form class="none" id="formJoin"  href="configBoard.html">
             <div style="display: flex; justify-content: center;">
                 <img src="DuckLogoBlue.png" style="width: 300px; border-radius: 15px;">
             </div>
     
             <h3>Inserisci la chiave sicura</h3>
-            <form id="formAccedi" action="connessioneDb.php">
+           
                 <input typ="text" id="keyGame" placeholder="chiave partita" style="padding-left: 10px;">
-                <button type="submit" id="creaGame" class="btn-primary" onClick="">Unisciti</button>
+                <button type="submit" id="joinGame" class="btn-primary" onClick="window.location.href='configBoard.html'">Unisciti</button>
 
                 <p style="padding-left: 10px;" class="mt-2">
                     Oppure crea un game: 
