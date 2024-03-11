@@ -16,7 +16,7 @@ const onClick = (e) => {
   renderMessage();
   casella++;
 
-  let coord = DuckCoords["cell-" + 7]["player-1"];
+  let coord = DuckCoords["cell-" + 21]["player-1"];
   const player1 = document.getElementById("player1");
   player1.style.position = "absolute";
   player1.style.left = coord.x + "px";
