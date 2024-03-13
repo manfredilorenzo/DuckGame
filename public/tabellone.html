@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+  <style>
+   .btn-gradient-pink {
+      background: radial-gradient(circle, #02A9D5, #0BEFFD); 
+      border-color: #fff;
+      color: #fff;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    #title {
+      margin-left: 20px;
+    }
+
+    #diceContainer {
+      display: inline-block;
+      text-align: left;
+    }
+
+    canvas {
+      border: 1px solid #000;
+      border-radius: 10px;
+      display: block;
+      margin: 10px 0 0 20px;
+    }
+
+    #diceImage {
+      width: 850px;
+      display: block;
+      margin: 10px 0 0 20px;
+    }
+
+
+  </style>
+</head>
+
+<body>
+  <h2 id="title">Duck Game</h2>
+
+  <div class="row align-items-start">
+    <div class="col-auto">
+      <canvas id="diceCanvas" width="120" height="120"></canvas>
+    </div>
+    <div class="col-auto">
+      <button id="dice" class="btn btn-gradient-pink" style="margin-top: 10px;">Tira il dado</button>
+      <p  id="pTiro" class="mt-2">Hai tirato: 6</p>
+    </div>
+  </div>
+
+  <div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+    <img src="./images/oca.png" class="img-fluid" style="width: 850px;" />
+  </div>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var canvas = document.getElementById('diceCanvas');
+      var ctx = canvas.getContext('2d');
+
+      function drawDiceFace(number) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Draw dice border
+        ctx.beginPath();
+        ctx.rect(10, 10, 100, 100);
+        ctx.lineWidth = 5;
+        ctx.strokeStyle = '#000';
+        ctx.stroke();
+        ctx.closePath();
+
+        // Draw dots based on the dice number
+        ctx.fillStyle = '#000';
+
+        switch (number) {
+          case 1:
+            drawDot(60, 60);
+            break;
+          case 2:
+            drawDot(40, 40);
+            drawDot(80, 80);
+            break;
+          case 3:
+            drawDot(40, 40);
+            drawDot(60, 60);
+            drawDot(80, 80);
+            break;
+          case 4:
+            drawDot(40, 40);
+            drawDot(80, 40);
+            drawDot(40, 80);
+            drawDot(80, 80);
+            break;
+          case 5:
+            drawDot(40, 40);
+            drawDot(80, 40);
+            drawDot(60, 60);
+            drawDot(40, 80);
+            drawDot(80, 80);
+            break;
+          case 6:
+            drawDot(40, 35);
+            drawDot(40, 60);
+            drawDot(40,85);
+            drawDot(80, 35);
+            drawDot(80, 60);
+            drawDot(80,85);
+
+            break;
+          default:
+            break;
+        }
+      }
+
+      function drawDot(x, y) {
+        ctx.beginPath();
+        ctx.arc(x, y, 8, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.closePath();
+      }
+
+      const button =document.getElementById("dice");
+      const pTiro = document.getElementById("pTiro");
+
+      dice.onclick = () => {
+        let num = Math.floor(Math.random() * 6) + 1; // Genera un numero casuale compreso tra 1 e 6
+    console.log(num);
+    pTiro.innerHTML ="Hai tirato: " + num;
+    drawDiceFace(num);
+
+      }
+
+ 
+    
+    })
+  </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+
+</html>
