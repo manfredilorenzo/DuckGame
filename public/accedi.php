@@ -15,11 +15,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($numeroRighe > 0) {
             // Utente trovato, esegui il reindirizzamento
             header('location: ./preGame.html');
-            exit();  // Assicurati di terminare lo script qui
+            exit(); 
         } else {
             // Utente non trovato, esegui l'inserimento
             if (mysqli_query($connessione, $sqlInsert)) {
                 echo "Inserito";
+                header('location: ./preGame.html');
+                exit(); 
             } else {
                 echo "Errore nell'inserimento: " . mysqli_error($connessione);
             }
